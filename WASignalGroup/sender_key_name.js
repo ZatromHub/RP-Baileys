@@ -1,38 +1,5 @@
-function isNull(str) {
-  return str === null || str.value === '';
-}
 
-/**
- * java String hashCode 的实现
- * @param strKey
- * @return intValue
- */
-function intValue(num) {
-  const MAX_VALUE = 0x7fffffff;
-  const MIN_VALUE = -0x80000000;
-  if (num > MAX_VALUE || num < MIN_VALUE) {
-    // eslint-disable-next-line
-    return (num &= 0xffffffff);
-  }
-  return num;
-}
 
-function hashCode(strKey) {
-  let hash = 0;
-  if (!isNull(strKey)) {
-    for (let i = 0; i < strKey.length; i++) {
-      hash = hash * 31 + strKey.charCodeAt(i);
-      hash = intValue(hash);
-    }
-  }
-  return hash;
-}
-
-/**
- * 将js页面的number类型转换为java的int类型
- * @param num
- * @return intValue
- */
 
 class SenderKeyName {
   constructor(groupId, sender) {
